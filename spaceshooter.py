@@ -20,7 +20,7 @@ class SpaceGame(App):
 
     
 
-myapp = SpaceGame(ImageAsset)
+myapp = SpaceGame(0,0)
 myapp.run()
 
 
