@@ -12,7 +12,7 @@ from ggame import SoundAsset, Sound, TextAsset, Color
 import math
 from time import time
 
-class SpacGame(App):
+class SpaceGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         bg_asset = ImageAsset("images/starfield.jpg")
