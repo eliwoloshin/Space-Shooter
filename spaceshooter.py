@@ -31,7 +31,7 @@ class SpaceGame(App):
         bg_asset = ImageAsset("images/starfield.jpg")
         bg = Sprite(bg_asset, (0,0))
         asset = ImageAsset("images/sun.png")
-        Sun((50, 50))
+        Sun((200, 150))
 
 
     
