@@ -12,6 +12,19 @@ from ggame import SoundAsset, Sound, TextAsset, Color
 import math
 from time import time
 
+class Sun(Sprite):
+    
+    asset = ImageAsset("images/sun.png")
+    width = 80
+    height = 76
+    
+    def __init__(self, position):
+        super().__init__(Sun.asset, position)
+        self.mass = 30*1000
+        self.fxcenter = 0.5
+        self.fycenter = 0.5
+        self.circularCollisionModel()
+
 class SpaceGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -26,18 +39,6 @@ myapp = SpaceGame(0,0)
 myapp.run()
 
 
-class Sun(Sprite):
-    
-    asset = ImageAsset("images/sun.png")
-    width = 80
-    height = 76
-    
-    def __init__(self, position):
-        super().__init__(Sun.asset, position)
-        self.mass = 30*1000
-        self.fxcenter = 0.5
-        self.fycenter = 0.5
-        self.circularCollisionModel()
 
 myapp = Spacegame(0,0)
 mapp.run()
