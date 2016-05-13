@@ -24,26 +24,18 @@ myapp = SpaceGame(0,0)
 myapp.run()
 
 
-
-#class Stars(Sprite):
-
-   # asset = ImageAsset("images/starfield.jpg")
-   # width = 512
-  #  height = 512
-
-  #  def __init__(self, position):
-   #     super().__init__(Stars.asset, position)
-
-#class Sun(Sprite):
+class Sun(Sprite):
     
-   # asset = ImageAsset("images/sun.png")
-    #width = 80
-  #  height = 76
+    asset = ImageAsset("images/sun.png")
+    width = 80
+    height = 76
     
-  #  def __init__(self, position):
-  #      super().__init__(Sun.asset, position)
-  #      self.mass = 30*1000
-  #      self.fxcenter = 0.5
-  #      self.fycenter = 0.5
-  #      self.circularCollisionModel()
+    def __init__(self, position):
+        super().__init__(Sun.asset, position)
+        self.mass = 30*1000
+        self.fxcenter = 0.5
+        self.fycenter = 0.5
+        self.circularCollisionModel()
 
+myapp = Sun(0,0)
+mapp.run()
