@@ -17,9 +17,11 @@ class SpaceGame(App):
         super().__init__(width, height)
         bg_asset = ImageAsset("images/starfield.jpg")
         bg = Sprite(bg_asset, (0,0))
+        asset = ImageAsset("images/sun.png")
+        Sun((50, 50))
+
 
     
-
 myapp = SpaceGame(0,0)
 myapp.run()
 
@@ -37,5 +39,5 @@ class Sun(Sprite):
         self.fycenter = 0.5
         self.circularCollisionModel()
 
-myapp = Sun(0,0)
+myapp = Spacegame(0,0)
 mapp.run()
