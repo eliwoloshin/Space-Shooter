@@ -34,6 +34,7 @@ class SpaceGame(App):
         Sun((200, 150))
 
 
+
     
 myapp = SpaceGame(0,0)
 myapp.run()
