@@ -66,6 +66,35 @@ class Ship1(SpaceShip):
                     collides[0].explode()
                     self.explode()
 
+class ExplosionSmall(Sprite):
+    
+    asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
+
+    def __init__(self, position):
+        super().__init__(ExplosionSmall.asset, position)
+        self.image = 0
+        self.center = (0.5, 0.5)
+
+    def step(self):
+        self.setImage(self.image//2)  # slow it down
+        self.image = self.image + 1
+        if self.image == 20:
+            self.destroy()
+
+class ExplosionBig(Sprite):
+    
+    asset = ImageAsset("images/explosion2.png", Frame(0,0,4800/25,195), 25)
+
+    def __init__(self, position):
+        super().__init__(ExplosionBig.asset, position)
+        self.image = 0
+        self.center = (0.5, 0.5)
+
+    def step(self):
+        self.setImage(self.image//2)  # slow it down
+        self.image = self.image + 1
+        if self.image == 50:
+            self.destroy()
 
 
 class SpaceGame(App):
