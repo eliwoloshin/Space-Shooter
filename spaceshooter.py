@@ -15,7 +15,7 @@ from time import time
 class SpaceShip(Sprite):
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
         Frame(227,0,292-227,125), 4, 'vertical')
-    def__init__(self, position):
+    def __init__(self, position):
         super().__init__(SpaceShip.asset, position)
 
 
@@ -40,10 +40,6 @@ class Sun(Sprite):
         self.fxcenter = 0.5
         self.fycenter = 0.5
         self.circularCollisionModel()
-
-
-
-
 
 
 myapp = SpaceGame(0,0)
