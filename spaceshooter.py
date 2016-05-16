@@ -47,6 +47,7 @@ class SpaceShip(Sprite):
         self.visible = False
         ExplosionBig(self.position)
         self.waitspawn = 5
+
 class Ship1(SpaceShip):
     
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
