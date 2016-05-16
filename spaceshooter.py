@@ -17,8 +17,9 @@ from time import time
 class SpaceShip(Sprite):
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
         Frame(227,0,292-227,125), 4, 'vertical')
-    def __init__(self, position):
+    def __init__(self, app, position, velocity, sun): # Ship1.asset, app, position, velocity, sun
         super().__init__(SpaceShip.asset, position)
+        
     def registerKeys(self, keys):
         commands = ["left", "right", "forward", "fire"]
         self.keymap = dict(zip(keys, commands))
@@ -103,8 +104,8 @@ class SpaceGame(App):
         bg_asset = ImageAsset("images/starfield.jpg")
         bg = Sprite(bg_asset, (0,0))
         asset = ImageAsset("images/sun.png")
-        Sun((200, 150))
-        SpaceShip((100, 100))
+        sun = Sun((200, 150))
+        Ship1(self, (100, 100), (0,0), sun)
 
 class Sun(Sprite):
     
