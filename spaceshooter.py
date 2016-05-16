@@ -55,7 +55,7 @@ class Ship1(SpaceShip):
         Frame(227,0,292-227,125), 4, 'vertical')
         
     def __init__(self, app, position, velocity, sun):
-        super().__init__(Ship1.asset, app, position, velocity, sun)
+        super().__init__(app, position, velocity, sun)
         self.registerKeys(["left arrow", "right arrow", "up arrow", "enter"])
         
     def step(self, T, dT):
