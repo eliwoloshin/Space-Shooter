@@ -19,7 +19,7 @@ class SpaceShip(Sprite):
         Frame(227,0,292-227,125), 4, 'vertical')
     def __init__(self, app, position, velocity, sun): # Ship1.asset, app, position, velocity, sun
         super().__init__(SpaceShip.asset, position)
-        
+        self.app = app
     def registerKeys(self, keys):
         commands = ["left", "right", "forward", "fire"]
         self.keymap = dict(zip(keys, commands))
