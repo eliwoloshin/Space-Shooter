@@ -49,6 +49,8 @@ class SpaceShip(Sprite):
         self.visible = False
         ExplosionBig(self.position)
         self.waitspawn = 5
+    def step(self, T, dT):
+        self.x = self.x+1
 
 class Ship1(SpaceShip):
     
