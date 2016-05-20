@@ -51,6 +51,11 @@ class SpaceShip(Sprite):
         self.waitspawn = 5
     def step(self, T, dT):
         self.x = self.x+1
+    def move(self):
+        self.X = math.sin(self.rotation)
+        self.Y = math.cos(self.rotation)
+        self.vx = self.X/math.sqrt(self.X*self.X + self.Y*self.Y)
+        self.vy = self.Y/math.sqrt(self.X*self.X + self.Y*self.Y)
 
 class Ship1(SpaceShip):
     
@@ -69,6 +74,9 @@ class Ship1(SpaceShip):
                 if collides[0].visible:
                     collides[0].explode()
                     self.explode()
+
+
+
 
 class ExplosionSmall(Sprite):
     
