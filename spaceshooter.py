@@ -71,7 +71,7 @@ class Ship1(SpaceShip):
         self.vx = 0
         self.vy = 0
         self.turn = 0
-        SpaceGame.listenKeyEvent("keydown", "w", self.thrustOn)
+        SpaceGame.listenKeyEvent("keydown", "w", self.controlup)
         SpaceGame.listenKeyEvent("keyup", "w", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "a", self.rotateLeft)
         SpaceGame.listenKeyEvent("keyup", "a", self.lrOff)
