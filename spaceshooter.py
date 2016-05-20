@@ -62,7 +62,7 @@ class Ship1(SpaceShip):
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
         Frame(227,0,292-227,125), 4, 'vertical')
     def __init__(self, app, position, velocity, sun):
-        super().__init__(position)
+        super().__init__(app, position, velocity, sun)
         self.vr = 0.00
         self.thrust = 0
         self.thrustframe = 1
