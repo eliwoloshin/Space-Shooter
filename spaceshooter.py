@@ -61,7 +61,26 @@ class Ship1(SpaceShip):
     
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
         Frame(227,0,292-227,125), 4, 'vertical')
-        
+    def __init__(self, position):
+        super().__init__(Ship2.asset, position)
+        self.vr = 0.00
+        self.thrust = 0
+        self.thrustframe = 1
+        self.VX = 0
+        self.VY = 0   
+        self.vx = 0
+        self.vy = 0
+        self.turn = 0
+        SpaceGame.listenKeyEvent("keydown", "w", self.thrustOn)
+        SpaceGame.listenKeyEvent("keyup", "w", self.thrustOff)
+        SpaceGame.listenKeyEvent("keydown", "a", self.rotateLeft)
+        SpaceGame.listenKeyEvent("keyup", "a", self.lrOff)
+        SpaceGame.listenKeyEvent("keydown", "d", self.rotateRight)
+        SpaceGame.listenKeyEvent("keyup", "d", self.rrOff)
+        SpaceGame.listenKeyEvent("keypress", "e", self.fire)
+        self.fxcenter = self.fycenter = 0.5
+        self.bullet = None
+
     def __init__(self, app, position, velocity, sun):
         super().__init__(app, position, velocity, sun)
         self.registerKeys(["left arrow", "right arrow", "up arrow", "enter"])
@@ -74,6 +93,7 @@ class Ship1(SpaceShip):
                 if collides[0].visible:
                     collides[0].explode()
                     self.explode()
+
 
 
 
