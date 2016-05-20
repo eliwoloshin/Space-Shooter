@@ -81,10 +81,6 @@ class Ship1(SpaceShip):
         self.fxcenter = self.fycenter = 0.5
         self.bullet = None
 
-    def __init__(self, app, position, velocity, sun):
-        super().__init__(app, position, velocity, sun)
-        self.registerKeys(["left arrow", "right arrow", "up arrow", "enter"])
-        
     def step(self, T, dT):
         super().step(T, dT)
         if self.visible:
