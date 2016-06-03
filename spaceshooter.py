@@ -61,7 +61,7 @@ class Ship1(SpaceShip):
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
         Frame(227,0,292-227,125), 4, 'vertical')
     def __init__(self, app, position, velocity, sun):
-        super().__init__(app, position, velocity, sun)
+        super().__init__(ship1.asset, app, position, velocity, sun)
         self.vr = 0.00
         self.thrust = 0
         self.thrustframe = 1
@@ -72,6 +72,34 @@ class Ship1(SpaceShip):
         self.turn = 0
         self.fxcenter = self.fycenter = 0.5
         self.bullet = None
+    def rotateRight(self, event):
+        self.rotation -= 0.1
+    def rotateLeft(self, event):
+        self.rotation += 0.1
+    def moveUp(self, event):
+        self.x += -5*sin(self.rotation)
+        self.y += -5*cos(self.rotation)
+        self.thrust = 1
+    def moveDown(self, event):
+        self.x += 5*sin(self.rotation)
+        self.y += 5*cos(self.rotation)
+        self.thrust = 1
+    def thrustoff(self, event):
+        self.thrust = 0
+    def fire(self, event):
+        Bullet((self.x,self.y))
+    def __init__(self, position):
+        super().__init__(Ship.asset, position)
+        self.fxcenter = self.fycenter = 0.5
+        SpaceGame.listenKeyEvent('keydown', 'right arrow', self.rotateRight)
+        SpaceGame.listenKeyEvent('keydown', 'left arrow', self.rotateLeft)
+        SpaceGame.listenKeyEvent('keydown', 'up arrow', self.moveUp)
+        SpaceGame.listenKeyEvent('keydown', 'down arrow', self.moveDown)
+        SpaceGame.listenKeyEvent('keyup', 'up arrow', self.thrustoff)
+        SpaceGame.listenKeyEvent('keyup', 'down arrow', self.thrustoff)
+        SpaceGame.listenKeyEvent('keydown', 'space', self.fire)
+        self.thrust = 0
+        self.thrustframe = 0
 
     def step(self, T, dT):
         super().step(T, dT)
@@ -123,8 +151,8 @@ class SpaceGame(App):
         bg_asset = ImageAsset("images/starfield.jpg")
         bg = Sprite(bg_asset, (0,0))
         asset = ImageAsset("images/sun.png")
-        sun = Sun((200, 150))
-        Ship1(self, (100, 100), (0,0), sun)
+        self.sun = Sun((200, 150))
+        Ship1(self, (100, 100), (0,0), self.sun)
 
 class Sun(Sprite):
     
@@ -139,10 +167,7 @@ class Sun(Sprite):
 
 myapp = SpaceGame(0,0)
 myapp.run()
-
-
-
-
+'''
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 from math import sin, cos
 
@@ -216,3 +241,6 @@ class SpaceGame(App):
         
     
 SpaceGame().run()
+'''
+
+
