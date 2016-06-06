@@ -33,6 +33,13 @@ class Sun2(Sprite):
     def__init__(self, position):
         super().__init__(Sun.asset, position)
         self.fxcenter = self.fycenter = 0.5
+
+class Ship(Sprite):
+    asset = ImageAsset("images/four_spaceship_by_albertrov_with_thrust.png",
+        Frame(277,0,292-227,125), 4, 'vertical')
+    def __init__(self, position):
+        super().__init__(Ship.asset, position)
+        self.fxcenter = self.fycenter = 0.5
     
 
 
