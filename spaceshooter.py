@@ -77,6 +77,9 @@ class Ship(Sprite):
         else:
             self.setImage(0)
 
+class Bullet(Sprite):
+    asset = ImageAsset("images/blast.png", Frame(0,0,8,8), 8)
+
 
     
 
