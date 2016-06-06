@@ -40,6 +40,44 @@ class Ship(Sprite):
     def __init__(self, position):
         super().__init__(Ship.asset, position)
         self.fxcenter = self.fycenter = 0.5
+        SpaceGame.listenKeyEvent('keydown', 'right arrow', self.rotateRight)
+        SpaceGame.listenKeyEvent('keydown', 'left arrow', self.rotateLeft)
+        SpaceGame.listenKeyEvent('keydown', 'up arrow', self.moveUp)
+        SpaceGame.listenKeyEvent('keydown', 'down arrow', self.moveDown)
+        SpaceGame.listenKeyEvent('keyup', 'up arrow', self.thrustoff)
+        SpaceGame.listenKeyEvent('keyup', 'down arrow', self.thrustoff)
+        SpaceGame.listenKeyEvent('keydown', 'space', self.fire)
+        self.thrust = 0
+        self.thrustframe = 0
+    def rotateRight(self, event):
+        self.rotation -= 0.1
+    def rotateLeft(self, event):
+        self.rotation += 0.1
+    def moveUp(self, event):
+        self.x += -5*sin(self.rotation)
+        self.y += -5*cos(self.rotation)
+        self.thrust = 1
+    def moveDown(self, event):
+        self.x += 7*sin(self.rotation)
+        self.y += 7*cos(self.rotation)
+        self.thrust = 1
+    def thrustoff(self, event):
+        self.thrust = 0
+    def fire(self, event):
+        Bullet((self.x,self.y))
+
+    def step(self):
+        if len(self.collidingWithSprites(Sun)) > 0:
+            self.destroy()
+        if self.thurst == 1:
+            self.setImage(self.thrustframe)
+            self.thrustframe += 1
+            if self.thurstframe == 4:
+                self.thrustframe = 1
+        else:
+            self.setImage(0)
+
+
     
 
 
