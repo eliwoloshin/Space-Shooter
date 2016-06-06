@@ -7,6 +7,51 @@ Assignment:
 Write and submit a program that implements the spacewar game:
 https://github.com/HHS-IntroProgramming/Spacewar
 """
+from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from math import sin, cos
+
+class Stars(Sprite):
+    
+    asset = ImageAsset("images/starfield.jpg")
+    width = 4000
+    height = 4000
+    
+    def __init__(self, position):
+        super().__init__(Stars.asset, position)
+
+
+class Sun1(Sprite):
+    asset = ImageAsset("images/sun.png")
+    
+    def__init__(self, position):
+        super().__init__(Sun.asset, position)
+        self.fxcenter = self.fycenter = 0.5
+
+class Sun2(Sprite):
+    asset = ImageAsset("images/sun.png")
+    
+    def__init__(self, position):
+        super().__init__(Sun.asset, position)
+        self.fxcenter = self.fycenter = 0.5
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 from ggame import App, Sprite, ImageAsset, Frame
 from ggame import SoundAsset, Sound, TextAsset, Color
 import math
@@ -167,6 +212,7 @@ class Sun(Sprite):
 
 myapp = SpaceGame(0,0)
 myapp.run()
+'''
 '''
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 from math import sin, cos
