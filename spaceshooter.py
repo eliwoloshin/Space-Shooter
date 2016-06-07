@@ -39,6 +39,16 @@ class Sun2(Sprite):
         super().__init__(Sun2.asset, position)
         self.fxcenter = self.fycenter = 0.5
 
+class Sun3(Sprite):
+    
+    asset = ImageAsset("images/sun.png")
+    width = 80
+    height = 76
+    
+    def __init__(self, position):
+        super().__init__(Sun3.asset, position)
+        self.fxcenter = self.fycenter = 0.5
+
 
 
 class Ship(Sprite):
@@ -96,6 +106,7 @@ class SpaceGame(App):
         Stars((0,0))
         Sun1((256,256))
         Sun2((400, 400))
+        Sun3((100, 100))
         Ship((100,100))
 
     def step(self):
