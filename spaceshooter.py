@@ -95,7 +95,7 @@ class SpaceGame(App):
         super().__init__()
         Stars((0,0))
         Sun1((256,256))
-        Sun2((500, 500))
+        Sun2((400, 400))
         Ship((100,100))
 
     def step(self):
