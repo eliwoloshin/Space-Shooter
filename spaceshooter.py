@@ -50,7 +50,6 @@ class Sun3(Sprite):
         self.fxcenter = self.fycenter = 0.5
 
 
-
 class Ship(Sprite):
     asset = ImageAsset("images/four_spaceship_by_albertrov_with_thrust.png",
         Frame(277,0,292-227,125), 4, 'vertical')
