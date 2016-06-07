@@ -19,20 +19,27 @@ class Stars(Sprite):
     def __init__(self, position):
         super().__init__(Stars.asset, position)
 
-
 class Sun1(Sprite):
-    asset = ImageAsset("images/sun.png")
     
-    def__init__(self, position):
-        super().__init__(Sun.asset, position)
+    asset = ImageAsset("images/sun.png")
+    width = 80
+    height = 76
+    
+    def __init__(self, position):
+        super().__init__(Sun1.asset, position)
         self.fxcenter = self.fycenter = 0.5
 
 class Sun2(Sprite):
-    asset = ImageAsset("images/sun.png")
     
-    def__init__(self, position):
-        super().__init__(Sun.asset, position)
+    asset = ImageAsset("images/sun.png")
+    width = 80
+    height = 76
+    
+    def __init__(self, position):
+        super().__init__(Sun2.asset, position)
         self.fxcenter = self.fycenter = 0.5
+
+
 
 class Ship(Sprite):
     asset = ImageAsset("images/four_spaceship_by_albertrov_with_thrust.png",
@@ -79,6 +86,25 @@ class Ship(Sprite):
 
 class Bullet(Sprite):
     asset = ImageAsset("images/blast.png", Frame(0,0,8,8), 8)
+    def __init__(self, position):
+        super().__init__(Bullet.asset, position)
+
+
+class SpaceGame(App):
+    def __init__(self):
+        super().__init__()
+        Stars((0,0))
+        Sun1((256,256))
+        Sun2((500, 500))
+        Ship((100,100))
+
+    def step(self):
+        for x in self.getSpritesbyClass(Ship):
+            x.step()
+
+    
+SpaceGame().run()
+
 
 
     
